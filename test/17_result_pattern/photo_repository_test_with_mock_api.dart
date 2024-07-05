@@ -38,9 +38,9 @@ void main() {
 
     switch (result) {
       case Error(error: final errorMessage):
-        assert(errorMessage == '네트워크 연결 에러가 발생했습니다');
-      case Success():
-        assert(false);
+        expect(errorMessage, '네트워크 연결 에러가 발생했습니다');
+      case Success(:final data):
+        print(data);
     }
   });
 
@@ -50,9 +50,9 @@ void main() {
 
     switch (result) {
       case Error(error: final errorMessage):
-        assert(errorMessage == 'HTTP 연결 에러가 발생했습니다');
-      case Success():
-        assert(false);
+        expect(errorMessage, 'HTTP 연결 에러가 발생했습니다');
+      case Success(:final data):
+        print(data);
     }
   });
 
@@ -62,9 +62,9 @@ void main() {
 
     switch (result) {
       case Error(error: final errorMessage):
-        assert(errorMessage == '요청 시간이 초과되었습니다');
-      case Success():
-        assert(false);
+        expect(errorMessage, '요청 시간이 초과되었습니다');
+      case Success(:final data):
+        print(data);
     }
   });
 
@@ -74,9 +74,9 @@ void main() {
 
     switch (result) {
       case Error(error: final errorMessage):
-        assert(errorMessage == '데이터 형식 에러가 발생했습니다');
-      case Success():
-        assert(false);
+        expect(errorMessage, '데이터 형식 에러가 발생했습니다');
+      case Success(:final data):
+        print(data);
     }
   });
 
@@ -86,9 +86,9 @@ void main() {
 
     switch (result) {
       case Error(error: final errorMessage):
-        assert(errorMessage.contains('알 수 없는 오류가 발생했습니다'));
-      case Success():
-        assert(false);
+        expect(errorMessage.contains('알 수 없는 오류가 발생했습니다'), true);
+      case Success(:final data):
+        print(data);
     }
   });
 }
